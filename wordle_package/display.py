@@ -22,31 +22,63 @@ COLORS = {
 }
 
 
-# def header(text: str) -> None:
-#     """Print a header in the terminal."""
-#     pass
+ def header(text: str) -> None:
+   """Print a header in the terminal."""
+     header = f"""
+----------------------------------------------------------------------------------------------------------
+                                                WORDLE GAME
+----------------------------------------------------------------------------------------------------------
+    """
+    print(header)
+   pass
 
 
 def game_instructions():
     """Print the game instructions in the terminal."""
+    print("Welcome to the Wordle game!")
+    print("You have 6 attempts to guess the 5-letter word.")
+    print("Feedback will be provided for each guess:")
+    print(f"{COLORS['GREEN']}GREEN{COLORS['RESET']} = Correct letter in the correct position.")
+    print(f"{COLORS['YELLOW']}YELLOW{COLORS['RESET']} = Correct letter in the wrong position.")
+    print(f"{COLORS['RED']}RED{COLORS['RESET']} = Incorrect letter.")
+    print("Good luck!\n")
+
     pass
 
 
 def game_start_display():
     """Print the starting message for the game."""
+    print("Starting the Wordle game!")
+    print("guess the word.\n")
     pass
 
 
 def display_word_feedback(guess: str, feedback: List[str]) -> str:
     """Display the coloured feedback for a guess."""
+    
+def display_word_feedback(guess: str, feedback: List[str]) -> str:
+   """Display the coloured feedback for a guess."""
+    colored_guess = ""
+    for letter, color in zip(guess, feedback):
+        if color == "GREEN":
+            colored_guess += f"{COLORS['GREEN']}{letter}{COLORS['RESET']}"
+        elif color == "YELLOW":
+            colored_guess += f"{COLORS['YELLOW']}{letter}{COLORS['RESET']}"
+        else:  # RED
+            colored_guess += f"{COLORS['RED']}{letter}{COLORS['RESET']}"
+    print(colored_guess)
+    return colored_guess
     pass
 
 
 def display_win(word: str, attempt: int) -> None:
     """Display for winning"""
-    pass
+    """Display for winning."""
+    print(Congratulations!You guessed the right word!")
+  pass
 
 
 def display_lost(word: str) -> None:
     """Display for losing"""
-    pass
+    pass    print(Game Over. Better luck next time!")
+
